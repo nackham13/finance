@@ -5,6 +5,7 @@
     <body>
         <div id="app">
             <button v-on:click="button1">ボタン1</button>
+            <button v-on:click="button2">ボタン2</button>
             {{ data1 }}{{ data2 }}
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
@@ -19,6 +20,16 @@
                     button1: function() {
                         params = new URLSearchParams(window.location.search);
                         url = "https://sheets.googleapis.com/v4/spreadsheets/" + params.get("id") + "/values/Legacy?key=" + params.get("key");
+                        $.ajax({
+                            url: url,
+                            dataType: "json"
+                        }).done(function(data) {
+                            console.log(data)
+                        })
+                    },
+                    button2: function() {
+                        params = new URLSearchParams(window.location.search);
+                        url = "https://script.googleusercontent.com/macros/echo?user_content_key=" + params.get("key") + "&lib=" + params.get("lib");
                         $.ajax({
                             url: url,
                             dataType: "json"
