@@ -32,7 +32,7 @@
                         url = "https://script.googleusercontent.com/macros/echo?user_content_key=" + params.get("key") + "&lib=" + params.get("lib");
                         $.ajax({
                             url: url,
-                            dataType: "json"
+                            dataType: "text"
                         }).done(function(data) {
                             console.log(data)
                         })
