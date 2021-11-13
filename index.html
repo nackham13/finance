@@ -17,8 +17,10 @@
                 },
                 methods: {
                     button1: function() {
+                        params = new URLSearchParams(window.location.search);
+                        url = "https://sheets.googleapis.com/v4/spreadsheets/" + params.get("id") + "/values/Legacy?key=" + params.get("key");
                         $.ajax({
-                            url: "https://sheets.googleapis.com/v4/spreadsheets/1jCpXDcisYDZSyx6UeBW78Y5SQMg9TBptWrDJNOiPtY8/values/Legacy?key=AIzaSyDuD3ABNf5wHcBTikO1eyNxNNz8VwZMioo",
+                            url: url,
                             dataType: "json"
                         }).done(function(data) {
                             console.log(data)
