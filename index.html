@@ -29,7 +29,7 @@
                     },
                     button2: function() {
                         params = new URLSearchParams(window.location.search);
-                        url = "https://script.googleusercontent.com/macros/echo?user_content_key=" + params.get("key") + "&lib=" + params.get("lib");
+                        url = "https://script.google.com/macros/s/" + params.get("key") + "/exec"
                         $.ajax({
                             url: url,
                             dataType: "text"
