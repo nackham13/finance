@@ -32,8 +32,9 @@
                         url = "https://script.google.com/macros/s/" + params.get("key") + "/exec"
                         $.ajax({
                             url: url,
-                            data: {
-                                crossDomain: true
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/x-www-form-urlencoded"
                             },
                             dataType: "json"
                         }).done(function(data) {
